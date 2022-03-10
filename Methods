@@ -1,0 +1,93 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Others
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine($"C из 7 по 5 = {Combinations(7, 5)}");
+
+            Combinations2(9, 7, out int C_9_7);
+            Console.WriteLine($"C из 9 по 7 = {C_9_7}");
+
+            Console.WriteLine($"ПараЛимпоМенон -> {ReverseCase("ПараЛимпоМенон")}");
+
+            Fourth();
+        }
+        /*
+        static int FactorialLinear(int n)
+        {
+            int r = 1;
+            while (n > 1)
+            {
+                r *= n--;
+            }
+            return r;
+        }
+        */
+        static int Factorial(int n)
+        {
+            if (n == 1)
+                return 1;
+
+            return n * Factorial(n - 1);
+        }
+        // First
+        static int Combinations(int n, int k)
+        {
+            return Factorial(n) / (Factorial(k) * Factorial(n - k));
+        }
+        // Second
+        static void Combinations2(int n, int k, out int result)
+        {
+            result = Factorial(n) / (Factorial(k) * Factorial(n - k));
+        }
+        static string ReverseCase(string str)
+        // Third
+        {
+            char[] letters = str.ToCharArray();
+            for (int i = 0; i < letters.Length; i++)
+            {
+                letters[i] = Char.IsLower(letters[i]) ? Char.ToUpper(letters[i]) : Char.ToLower(letters[i]);
+            }
+            return new string(letters);
+        }
+        // Fourth
+        static void Fourth()
+        {
+            const int N = 10;
+            int[] array = new int[N];
+
+            Random rand = new Random();
+            for (int i = 0; i < N; i++)
+            {
+                array[i] = rand.Next(0, 100);
+            }
+
+            CalculateArrayAverage(array, out int average);
+            int numbersHigehrThanAverage = CountNumbersHigherThan(array, average);
+
+
+        }
+        static int CountNumbersHigherThan(int[] array, int x)
+        {
+            int count = 0;
+            foreach (int n in array)
+                if (n > x)
+                    count++;
+            return count;
+        }
+        static void CalculateArrayAverage(int[] array, out int average)
+        {
+            int sum = 0;
+            foreach (int n in array)
+            {
+                sum += n;
+            }
+            average = sum / array.Length;
+        }
+    }
+}
