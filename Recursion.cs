@@ -6,33 +6,61 @@ namespace Recursion
     {
         static void Main(string[] args)
         {
-            /*
+            //First
             Console.WriteLine("Введите числа A и B:");
             int A = int.Parse(Console.ReadLine()),
                 B = int.Parse(Console.ReadLine());
-            Console.WriteLine(First(A, B));
+            First(A, B);
 
+            //Second
             Console.WriteLine("Введите числа m и n:");
             int m = int.Parse(Console.ReadLine()),
                 n = int.Parse(Console.ReadLine());
             Console.WriteLine(Akkerman(m, n));
 
+            //Third
             Console.WriteLine("Введите число N:");
             int N = int.Parse(Console.ReadLine());
             Console.WriteLine($"Сумма цифр числа {N} равна {SumOfDigits(N)}");
-            */
 
+            //Fourth
+            DigitsRightToLeft(12345);
 
+            //Fifth
+            string word = "арозаупаланалапуазора";
+            string isPalindrome = IsPalindrome(word) ? "Yes" : "No";
+            Console.WriteLine(
+                $"Является ли слово \"{word}\" палиндромом: {isPalindrome}");
+
+            string word2 = "шабаш";
+            string isPalindrome2 = IsPalindrome(word2) ? "Yes" : "No";
+            Console.WriteLine(
+                $"Является ли слово \"{word2}\" палиндромом: {isPalindrome2}");
+
+            string word3 = "казаки";
+            string isPalindrome3 = IsPalindrome(word3) ? "Yes" : "No";
+            Console.WriteLine(
+                $"Является ли слово \"{word3}\" палиндромом: {isPalindrome3}");
         }
 
-        static string First(int A, int B)
+        static void First(int A, int B)
         {
             if (A < B)
-                return A.ToString() + ", " + First(A + 1, B);
+            {
+                Console.Write(A);
+                Console.Write(", ");
+                First(A + 1, B);
+            }
             else if (A > B)
-                return A.ToString() + ", " + First(A - 1, B);
+            {
+                Console.Write(A);
+                Console.Write(", ");
+                First(A - 1, B);
+            }
             else
-                return A.ToString();
+            {
+                Console.Write(A);
+            }
         }
 
         static int Akkerman(int m, int n)
@@ -54,11 +82,24 @@ namespace Recursion
             return SumOfDigits(N / 10) + N % 10;
         }
 
-        static string DigitsRightToLeft(int N)
+        static void DigitsRightToLeft(int N)
         {
             if (N < 10)
-                return N.ToString();
-            return (N % 10).ToString() + DigitsRightToLeft(N / 10);
+                Console.Write(N);
+            else
+            {
+                Console.Write(N % 10);
+                Console.Write(", ");
+                DigitsRightToLeft(N / 10);
+            }
+        }
+
+        static bool IsPalindrome(string word)
+        {
+            if (word.Length <= 1)
+                return true;
+            return word[0] == word[word.Length - 1] && IsPalindrome(word.Substring(1, word.Length - 2));
+
         }
     }
 }
