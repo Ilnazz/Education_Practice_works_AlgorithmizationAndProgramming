@@ -7,23 +7,35 @@ namespace Recursion
         static void Main(string[] args)
         {
             //First
-            Console.WriteLine("Введите числа A и B:");
-            int A = int.Parse(Console.ReadLine()),
-                B = int.Parse(Console.ReadLine());
-            First(A, B);
+            //Console.WriteLine("Введите числа A и B:");
+            //int A = int.Parse(Console.ReadLine()),
+            //    B = int.Parse(Console.ReadLine());
+            //First(A, B);
+            Console.Write("\nОт -10 до 10: ");
+            First(-10, 10);
+            Console.Write("\nОт 10 до -10: ");
+            First(10, -10);
+            Console.WriteLine();
 
             //Second
-            Console.WriteLine("Введите числа m и n:");
-            int m = int.Parse(Console.ReadLine()),
-                n = int.Parse(Console.ReadLine());
-            Console.WriteLine(Akkerman(m, n));
+            //Console.WriteLine("Введите числа m и n:");
+            //int m = int.Parse(Console.ReadLine()),
+            //    n = int.Parse(Console.ReadLine());
+            //Console.WriteLine(Akkerman(m, n));
+
+            Console.WriteLine($"Аккерман(0, 0): {Akkerman(0, 0)}");
+            Console.WriteLine($"Аккерман(0, 1): {Akkerman(0, 1)}");
+            Console.WriteLine($"Аккерман(1, 0): {Akkerman(1, 0)}");
+            Console.WriteLine($"Аккерман(1, 1): {Akkerman(1, 1)}\n");
 
             //Third
-            Console.WriteLine("Введите число N:");
-            int N = int.Parse(Console.ReadLine());
-            Console.WriteLine($"Сумма цифр числа {N} равна {SumOfDigits(N)}");
+            //Console.WriteLine("Введите число N:");
+            //int N = int.Parse(Console.ReadLine());
+            //Console.WriteLine($"Сумма цифр числа {N} равна {SumOfDigits(N)}");
+            Console.WriteLine($"Сумма цифр числа 12345 равна {SumOfDigits(12345)}");
 
             //Fourth
+            Console.WriteLine("Цифры числа 12345 справа налево:");
             DigitsRightToLeft(12345);
 
             //Fifth
