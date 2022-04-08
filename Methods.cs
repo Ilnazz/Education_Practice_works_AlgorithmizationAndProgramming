@@ -22,17 +22,6 @@ namespace Others
 
         }
 
-        /*
-        static int FactorialLinear(int n)
-        {
-            int result = 1;
-            while (n > 1)
-            {
-                result *= n--;
-            }
-            return result;
-        }
-        */
         static int Factorial(int n)
         {
             if (n == 1)
